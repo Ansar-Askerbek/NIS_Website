@@ -1,6 +1,6 @@
-html {
-    scroll-behavior: smooth;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   box-sizing: border-box;
@@ -19,27 +19,39 @@ body {
 * {
   box-sizing: border-box;
 }
+
 /* Navigation */
 nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.85);
+  top: 24px; /* Added spacing from top so it looks like a floating pill */
+  left: 50%;
+  transform: translateX(-50%); /* Centers the element exactly */
+  
+  width: 85%;
+  max-width: 1200px; /* Prevents it from getting too wide on huge screens */
+  
+  /* Transparency 50% and Blur */
+  background: rgba(255, 255, 255, 0.5); 
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(14, 199, 114, 0.1);
+  
+  /* Borders and Shape */
+  border: 1px solid rgba(14, 199, 114, 0.2); /* Changed from bottom-only to full border */
+  border-radius: 100px; /* Pill shape */
+  
   z-index: 1000;
-  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Adds depth to the floating bar */
 }
+
 .nav-container {
-  max-width: 1400px;
+  width: 100%; /* Take full width of the pill */
   margin: 0 auto;
-  padding: 0 48px;
-  height: 72px;
+  padding: 0 32px; /* Reduced slightly to fit rounded corners */
+  height: 64px; /* Slightly compact height looks better on pills */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .nav-logo {
   font-size: 20px;
   font-weight: 700;
@@ -49,24 +61,28 @@ nav {
   background-clip: text;
   letter-spacing: -0.03em;
 }
+
 .nav-menu {
   display: flex;
-  gap: 48px;
+  gap: 40px; /* Adjusted gap */
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
 .nav-menu a {
   color: #2a2a2a;
   text-decoration: none;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600; /* Slightly bolder for better readability on transparent bg */
   transition: color 0.3s ease;
   letter-spacing: -0.01em;
 }
+
 .nav-menu a:hover {
   color: #0EC772;
 }
+
 /* Section Base */
 .section {
   padding: 120px 48px;
@@ -100,6 +116,7 @@ nav {
   margin-left: auto;
   margin-right: auto;
 }
+
 /* Shanyrak Section */
 .shanyrak-section {
   background: linear-gradient(180deg, #f8fefb 0%, #ffffff 50%, #f8fefb 100%);
@@ -127,6 +144,7 @@ nav {
   gap: 60px;
   align-items: center;
 }
+
 /* AI Dashboard Mockup */
 .dashboard-mockup {
   background: rgba(255, 255, 255, 0.7);
@@ -226,6 +244,7 @@ nav {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
 /* Shanyrak Info */
 .shanyrak-info h3 {
   font-size: 36px;
@@ -240,6 +259,41 @@ nav {
   color: #4a4a4a;
   margin: 0 0 40px 0;
 }
+
+/* --- BUTTON STYLES (Pure CSS) --- */
+.btn {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  /* Размеры и скругление */
+  padding: 12px 32px;
+  border-radius: 12px;
+  border: none;
+}
+
+/* Основная кнопка (Primary) */
+.btn-primary {
+  /* Зеленый градиент */
+  background: linear-gradient(135deg, #0EC772 0%, #0BAA5A 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(14, 199, 114, 0.25);
+}
+
+/* Кнопка при наведении (Primary Hover) */
+.btn-primary:hover {
+  /* Свечение */
+  box-shadow: 0 0 50px rgba(14, 199, 114, 0.5); 
+  /* Сдвиг вправо на 2 пикселя */
+  transform: translateX(4px);
+}
+
+/* Features styles */
 .feature-list {
   display: flex;
   flex-direction: column;
@@ -278,6 +332,7 @@ nav {
   gap: 16px;
   flex-wrap: wrap;
 }
+
 /* About Section */
 .about-section {
   background: linear-gradient(180deg, #ffffff 0%, #f8fefb 100%);
@@ -352,6 +407,7 @@ nav {
   color: #4a4a4a;
   margin: 0;
 }
+
 /* Footer */
 footer {
   background: linear-gradient(180deg, #f8fefb 0%, #ffffff 100%);
@@ -416,6 +472,7 @@ footer {
   color: #0EC772;
   font-weight: 600;
 }
+
 /* Responsive */
 @media (max-width: 1200px) {
   .nav-container,
@@ -458,18 +515,6 @@ footer {
   }
   .about-grid {
     grid-template-columns: 1fr;
-  }
-  .sphere-container {
-    width: 360px;
-    height: 360px;
-  }
-  .sphere {
-    font-size: 100px;
-  }
-  .orbit-1,
-  .orbit-2 {
-    width: 420px;
-    height: 420px;
   }
   .dashboard-mockup {
     padding: 28px;

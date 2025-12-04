@@ -113,7 +113,7 @@ export const ShanyrakSection: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="shanyrak-buttons"><a href="#" className="btn btn-primary">Вход</a>
+                    <div className="shanyrak-button"><a href="#" className="btn btn-primary">Вход</a>
                     </div>
                 </div>
             </div>
