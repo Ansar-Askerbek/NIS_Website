@@ -1,0 +1,467 @@
+/* ИЗОЛЯЦИЯ: Все стили действуют только внутри #admin-scope */
+
+#admin-scope {
+  font-family: unbounded, "monospace"; /* Ваш шрифт */
+  background: #f8f8f8;
+  color: #1d1d1f;
+  line-height: 1.5;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  /* Отступ сверху: Навбар (64+24) + Меню вкладок (60) + Запас */
+  padding-top: 180px; 
+}
+
+/* --- HEADER (Внутри страницы) --- */
+#admin-scope .admin-header {
+  background: #ffffff;
+  border-bottom: 1px solid #d2d2d7;
+  padding: 0;
+  width: 100%;
+  display: none; /* Скрываем его, так как у нас плавающее меню, чтобы не мешал */
+}
+
+/* Заголовок страницы (который видно) */
+#admin-scope .admin-page-title-area {
+  text-align: center;
+  margin-bottom: 30px;
+}
+#admin-scope .admin-page-title-area h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+}
+
+#admin-scope .admin-page-title-area p {
+  font-size: 28px;
+  margin: 8px 0 0 0;
+}
+
+/* --- NAVIGATION TABS (То самое выпадающее окно) --- */
+#admin-scope .nav-tabs {
+  /* ПЛАВАЮЩИЙ СТИЛЬ */
+  position: fixed;
+  top: 100px; /* Чуть ниже основного навбара */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 900; /* Ниже главного навбара (1000), но выше контента */
+  
+  /* Визуал */
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 8px;
+  border-radius: 100px; /* Овальная форма */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  
+  /* Размеры */
+  width: auto;
+  min-width: 400px;
+  display: flex;
+  justify-content: center;
+}
+
+#admin-scope .nav-tabs-content {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+#admin-scope .nav-tab {
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6e6e73;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  position: relative;
+  border-radius: 50px; /* Кнопки тоже круглые */
+}
+
+#admin-scope .nav-tab:hover {
+  color: #1d1d1f;
+  background: rgba(0,0,0,0.03);
+}
+
+/* Активная вкладка - черная кнопка */
+#admin-scope .nav-tab.active {
+  background: #1a1a1a;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Убираем старое подчеркивание, так как теперь это кнопки */
+#admin-scope .nav-tab::after {
+  display: none;
+}
+
+
+/* --- MAIN CONTENT (Вернул ваш старый стиль) --- */
+#admin-scope .admin-main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px 80px;
+}
+
+/* --- STATS GRID --- */
+#admin-scope .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+#admin-scope .stat-card {
+  background: #ffffff;
+  border: 1px solid #d2d2d7;
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.2s ease;
+}
+
+#admin-scope .stat-label {
+  font-size: 12px;
+  color: #6e6e73;
+  margin-bottom: 8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+#admin-scope .stat-value {
+  font-size: 32px;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+#admin-scope .stat-trend {
+  font-size: 13px;
+  color: #0A5F32;
+  margin-top: 8px;
+}
+
+/* --- SECTIONS & TABLES --- */
+#admin-scope .admin-section {
+  background: #ffffff;
+  border: 1px solid #d2d2d7;
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 24px;
+  font-size: larger;
+}
+
+#admin-scope .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+#admin-scope .section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin: 0;
+}
+
+#admin-scope .table-container {
+  overflow-x: auto;
+}
+
+#admin-scope table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13px;
+}
+
+#admin-scope th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #6e6e73;
+  font-size: 11px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #d2d2d7;
+}
+
+#admin-scope td {
+  padding: 16px;
+  border-bottom: 1px solid #f5f5f7;
+  color: #1d1d1f;
+  font-size: large;
+}
+
+#admin-scope .name-cell { font-weight: 500; }
+
+/* --- ЦВЕТА БАЛЛОВ (Добавил, как вы просили) --- */
+#admin-scope .points-positive {
+  color: #0A5F32; /* Зеленый */
+  font-weight: 700;
+  margin-top: 17px;
+  margin-left: 15px;
+}
+
+#admin-scope .points-negative {
+  color: #dc2626; /* Красный */
+  font-weight: 700;
+  margin-top: 17px;
+  margin-left: 15px;
+}
+
+/* --- BADGES & BUTTONS --- */
+#admin-scope .status-badge {
+  display: inline-flex; padding: 4px 10px; border-radius: 6px;
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+}
+#admin-scope .status-approved { background: #d4edda; color: #155724; }
+#admin-scope .status-pending { background: #fff3cd; color: #856404; }
+
+#admin-scope .btn {
+  padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 500;
+  border: none; cursor: pointer;
+}
+#admin-scope .btn-primary { background: #0A5F32; color: #ffffff; }
+
+#admin-scope .btn-edit {
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid #0EC772;
+  color: #0EC772;
+  background: transparent;
+  cursor: pointer;
+  /* margin-top убрал, чтобы ровно стояло в навбаре */
+  margin: 0; 
+}
+
+#admin-scope .btn-edit:hover {
+  background: #0EC772;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(14, 199, 114, 0.3);
+  transform: translateY(-1px);
+}
+
+/* --- SHANYRAK CARDS --- */
+
+#admin-scope .shanyrak-grid {
+  display: grid;
+  /* Адаптивная сетка: карточки не меньше 340px */
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+#admin-scope .shanyrak-item {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+#admin-scope .shanyrak-item:hover {
+  border-color: #0A5F32;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(14, 199, 114, 0.15);
+}
+
+/* Заголовок карточки */
+#admin-scope .shanyrak-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+#admin-scope .shanyrak-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin: 0;
+}
+
+/* Бейджик места (1, 2, 3...) */
+#admin-scope .rank-badge {
+  width: 28px;
+  height: 28px;
+  background: #f3f4f6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #666;
+}
+/* Золото, Серебро, Бронза */
+#admin-scope .rank-1 { background: #FEF3C7; color: #D97706; }
+#admin-scope .rank-2 { background: #F3F4F6; color: #4B5563; }
+#admin-scope .rank-3 { background: #FFEDD5; color: #C2410C; }
+
+/* Очки */
+#admin-scope .shanyrak-score {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0A5F32;
+  text-align: right;
+}
+
+#admin-scope .score-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  color: #888;
+  text-transform: uppercase;
+}
+
+/* Сетка информации внутри карточки (Лидер, Куратор...) */
+#admin-scope .shanyrak-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 колонки */
+  gap: 16px;
+}
+
+#admin-scope .info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#admin-scope .info-label {
+  font-size: 11px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+#admin-scope .info-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+/* Цвета трендов */
+#admin-scope .text-green { color: #059669; }
+#admin-scope .text-red { color: #dc2626; }
+
+/* --- POINTS CONFIGURATION (Вкладка Баллы) --- */
+
+/* Контейнер для таблицы баллов */
+#admin-scope .points-table-wrapper {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e5e5e5;
+  overflow: hidden; /* Чтобы закругленные углы не обрезались */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+/* Стиль заголовков таблицы */
+#admin-scope .points-table th {
+  background: #f9fafb;
+  padding: 18px 24px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  font-weight: 700;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Строки таблицы */
+#admin-scope .points-table td {
+  padding: 20px 24px;
+  vertical-align: middle;
+  border-bottom: 1px solid #f3f4f6;
+  color: #1f2937;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Убираем линию у последней строки */
+#admin-scope .points-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Эффект наведения на строку */
+#admin-scope .points-table tr:hover td {
+  background-color: #fdfdfd;
+}
+
+/* --- СТИЛИ ДЛЯ САМИХ БАЛЛОВ (ПЛАШКИ) --- */
+
+/* Общий стиль для ячейки с баллами */
+#admin-scope .points-badge-cell {
+  width: 1%; /* Чтобы колонка сжалась до размера контента */
+  white-space: nowrap;
+}
+
+/* Положительные баллы (Зеленая капсула) */
+#admin-scope .points-positive {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 32px;
+  padding: 0 12px;
+  
+  background: rgba(14, 199, 114, 0.1); /* Полупрозрачный зеленый */
+  color: #0A5F32; /* Темно-зеленый текст */
+  border: 1px solid rgba(14, 199, 114, 0.2);
+  
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Отрицательные баллы (Красная капсула) */
+#admin-scope .points-negative {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 32px;
+  padding: 0 12px;
+  
+  background: rgba(220, 38, 38, 0.1); /* Полупрозрачный красный */
+  color: #dc2626; /* Темно-красный текст */
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Кнопка Edit в таблице */
+#admin-scope .btn-edit-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+  background: white;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#admin-scope .btn-edit-icon:hover {
+  border-color: #0A5F32;
+  color: #0A5F32;
+  background: #f0fdf4;
+}

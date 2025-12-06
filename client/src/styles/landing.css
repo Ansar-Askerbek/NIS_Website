@@ -1,0 +1,388 @@
+/* Shanyrak Section */
+.shanyrak-section {
+  background: linear-gradient(180deg, #f8fefb 0%, #ffffff 50%, #f8fefb 100%);
+  position: relative;
+  overflow: hidden;
+}
+.shanyrak-section::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(14, 199, 114, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+}
+.shanyrak-showcase {
+  position: relative;
+  z-index: 1;
+}
+.shanyrak-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* --- SHANYRAK RATING & DASHBOARD STYLES --- */
+
+/* Контейнер дашборда (стеклянная карточка) */
+.dashboard-mockup {
+  background: rgba(255, 255, 255, 0.85); /* Чуть менее прозрачный для читаемости */
+  backdrop-filter: blur(40px);
+  border-radius: 24px;
+  padding: 40px;
+  border: 1px solid rgba(14, 199, 114, 0.15);
+  box-shadow: 
+    0 20px 60px rgba(14, 199, 114, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  position: relative;
+  overflow: hidden;
+  max-width: 700px; /* Ограничение ширины, чтобы не растягивался слишком сильно */
+  margin: 0 auto;   /* Центрирование */
+}
+
+/* Градиент сверху для красоты */
+.dashboard-mockup::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #0EC772, #0BAA5A);
+}
+
+/* Шапка дашборда */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.dashboard-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+}
+
+.dashboard-badge {
+  padding: 6px 12px;
+  background: #ecfdf5; /* Светло-зеленый фон */
+  color: #059669;      /* Темно-зеленый текст */
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Список рейтинга */
+.ranking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #ffffff;
+  border: 1px solid #f3f4f6;
+  border-radius: 16px;
+  transition: all 0.2s ease;
+}
+
+.ranking-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border-color: rgba(14, 199, 114, 0.3);
+  z-index: 10;
+}
+
+/* Левая часть: Номер + Имя */
+.ranking-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ranking-number {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #6b7280;
+  background: #f9fafb;
+}
+
+/* Особые стили для ТОП-3 */
+.ranking-item:nth-child(1) .ranking-number {
+  background: linear-gradient(135deg, #FFD700 0%, #FDB931 100%);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(253, 185, 49, 0.4);
+}
+
+.ranking-item:nth-child(2) .ranking-number {
+  background: linear-gradient(135deg, #E0E0E0 0%, #BDBDBD 100%);
+  color: #fff;
+}
+
+.ranking-item:nth-child(3) .ranking-number {
+  background: linear-gradient(135deg, #CD7F32 0%, #A0522D 100%);
+  color: #fff;
+}
+
+.ranking-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* Правая часть: Баллы */
+.ranking-points {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0A5F32;
+  background: rgba(14, 199, 114, 0.1);
+  padding: 6px 12px;
+  border-radius: 8px;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* AI Dashboard Mockup Styles */
+.dashboard-mockup {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(30px);
+  border-radius: 24px;
+  padding: 40px;
+  border: 1px solid rgba(14, 199, 114, 0.2);
+  box-shadow: 
+    0 20px 60px rgba(14, 199, 114, 0.1),
+    0 0 80px rgba(14, 199, 114, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+  width:100%;
+}
+.dashboard-mockup::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(180deg, rgba(14, 199, 114, 0.08) 0%, transparent 100%);
+  border-radius: 24px 24px 0 0;
+}
+
+/* Feature Lists & Ranking Items (Landing specific) */
+.ranking-item {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(14, 199, 114, 0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+.ranking-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 8px 24px rgba(14, 199, 114, 0.15);
+  border-color: rgba(14, 199, 114, 0.3);
+}
+
+.shanyrak-info h3 {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 20px 0;
+  color: #0a0a0a;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: rgba(14, 199, 114, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(14, 199, 114, 0.1);
+  margin-bottom: 10px;
+}
+.feature-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #0EC772 0%, #0BAA5A 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(14, 199, 114, 0.25);
+}
+
+/* About Section */
+.about-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fefb 100%);
+}
+.about-hero-visual {
+  width: 100%;
+  /* height: 500px; */
+  /* background: linear-gradient(135deg, rgba(14, 199, 114, 0.1) 0%, rgba(11, 170, 90, 0.15) 100%); */
+  border-radius: 24px;
+  margin-bottom: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 120px;
+  position: relative; 
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(14, 199, 114, 0.15);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.about-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 48px 36px;
+  border: 1px solid rgba(14, 199, 114, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+  text-align: center;
+}
+.about-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 60px rgba(14, 199, 114, 0.2),
+    0 0 40px rgba(14, 199, 114, 0.1);
+  border-color: rgba(14, 199, 114, 0.3);
+}
+.about-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(14, 199, 114, 0.1) 0%, rgba(11, 170, 90, 0.15) 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin: 0 auto 28px;
+  box-shadow: 0 8px 24px rgba(14, 199, 114, 0.15);
+}
+
+.btn-primary {
+  /* 1. Размеры и форма */
+  padding: 10px 28px; /* Чуть увеличил для солидности */
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 2. Позиция (сдвигаем вниз) */
+  margin-top: 12px; /* <-- Сдвинули вниз */
+
+  /* 3. Цвет (ВСЕГДА зеленый) */
+  background: linear-gradient(135deg, #0EC772 0%, #0BAA5A 100%);
+  color: #ffffff;
+  border: none; /* Убираем рамку, так как есть фон */
+  
+  /* Легкая тень в обычном состоянии */
+  box-shadow: 0 4px 12px rgba(14, 199, 114, 0.25);
+  
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 4. Эффект при наведении (АУРА) */
+.btn-primary:hover {
+  transform: translateX(4px); /* Чуть всплывает вверх */
+  
+  box-shadow: 
+    0 20px 60px rgba(14, 199, 114, 0.2),
+    0 0 40px rgba(14, 199, 114, 0.1);
+}
+
+/* Эффект при нажатии */
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 20px 60px rgba(14, 199, 114, 0.2),
+    0 0 40px rgba(14, 199, 114, 0.1);
+}
+
+/* Стилизация картинки About Hero */
+.heroImage {
+  /* 1. Размеры и позиционирование */
+  width: 100%;
+  max-height: 650px;
+  max-width: 1500px; /* Ограничиваем ширину, чтобы на больших экранах не была гигантской */
+  height: auto;      /* Сохраняем пропорции */
+  display: block;
+  margin: 0 auto auto; /* Центрируем и добавляем отступ снизу */
+
+  /* 2. Красота (Скругление и Границы) */
+  border-radius: 24px; /* Сильное скругление углов */
+  border: 1px solid rgba(14, 199, 114, 0.2); /* Тонкая зеленая рамка */
+  
+  /* 3. Тень (Свечение снизу) */
+  box-shadow: 
+    0 20px 40px rgba(14, 199, 114, 0.1), /* Основная мягкая тень */
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset; /* Внутренний блик (стеклянный эффект) */
+
+  /* 4. Поведение картинки */
+  object-fit: cover; /* Заполняет пространство красиво */
+  
+  /* 5. Анимация */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer; /* Показывает, что элемент интерактивный */
+}
+
+@media (max-width: 768px) {
+  .shanyrak-section {
+    margin-top: 35px;
+  }
+
+  .dashboard-badge {
+    display: none; /* Скрываем бейдж на мобильных для экономии места */
+  }
+
+  .about-hero-visual {
+    margin-bottom: 40px;
+  }
+
+  .heroImage {
+    max-height: 250px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 320px) {
+  .ranking-points {
+    display: none; /* Прячем баллы на очень узких экранах */
+  }
+}

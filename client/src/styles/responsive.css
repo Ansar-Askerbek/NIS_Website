@@ -1,0 +1,20 @@
+@media (max-width: 968px) {
+  .nav-menu { display: none; }
+  .section { padding: 80px 24px; }
+  .header-container { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .shanyrak-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .hero-content h1 { font-size: 36px; }
+  .section-header h2 { font-size: 32px; }
+  .btn { width: 100%; text-align: center; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .profile-info { display: none; }
+  
+  .about-hero-visual {
+    height: 300px;
+    font-size: 80px;
+  }
+}

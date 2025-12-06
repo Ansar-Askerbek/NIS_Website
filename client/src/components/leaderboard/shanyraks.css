@@ -1,0 +1,120 @@
+/* --- LEADERBOARD PAGE --- */
+
+.leaderboard-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 120px 20px 60px; /* Отступ сверху под навбар */
+  font-family: 'Unbounded', sans-serif;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+.leaderboard-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.leaderboard-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.leaderboard-header p {
+  color: #666;
+  font-size: 16px;
+}
+
+/* Список */
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Карточка одного шанырака */
+.rank-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  padding: 20px 32px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.rank-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(14, 199, 114, 0.15);
+  border-color: rgba(14, 199, 114, 0.3);
+}
+
+/* Левая часть: Место + Имя */
+.rank-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Цифра места */
+.rank-number {
+  font-size: 24px;
+  font-weight: 800;
+  color: #9ca3af; /* Серый для обычных мест */
+  width: 40px;
+  text-align: center;
+}
+
+/* Имя */
+.rank-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Правая часть: Баллы */
+.rank-score {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0A5F32;
+  background: rgba(14, 199, 114, 0.1);
+  padding: 8px 16px;
+  border-radius: 12px;
+  min-width: 100px;
+  text-align: center;
+}
+
+/* --- ТОП 3 ОСОБЫЕ СТИЛИ --- */
+
+/* 1 Место - Золото */
+.rank-card.top-1 {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FFFFFF 100%);
+  border: 1px solid #FCD34D;
+  box-shadow: 0 10px 40px rgba(251, 191, 36, 0.15);
+}
+.rank-card.top-1 .rank-number {
+  color: #D97706; /* Золотой текст */
+  font-size: 32px;
+}
+.rank-card.top-1 .rank-number::after { content: '👑'; font-size: 16px; margin-left: 5px; position: absolute; }
+
+/* 2 Место - Серебро */
+.rank-card.top-2 {
+  border: 1px solid #E5E7EB;
+}
+.rank-card.top-2 .rank-number { color: #6B7280; font-size: 28px; }
+
+/* 3 Место - Бронза */
+.rank-card.top-3 {
+  border: 1px solid #FFEDD5;
+}
+.rank-card.top-3 .rank-number { color: #C2410C; font-size: 26px; }
+
+@media (max-width: 320px) {
+    .rank-score {
+        display: none;
+    }
+}
