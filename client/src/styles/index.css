@@ -1,0 +1,10 @@
+@import './base.css';
+@import './components.css';
+@import './landing.css';
+@import './dashboard.css';
+@import './responsive.css';
+@import "./auth.css";
+
+* {
+    font-family: unbounded;
+}

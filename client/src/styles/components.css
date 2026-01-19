@@ -1,0 +1,220 @@
+/* --- NAVIGATION (Ваш код) --- */
+nav {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  max-width: 1200px;
+  background: rgba(255, 255, 255, 0.85); /* Чуть увеличил непрозрачность для читаемости */
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(14, 199, 114, 0.2);
+  border-radius: 100px;
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #0EC772 0%, #0BAA5A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* --- AUTH BUTTONS --- */
+.btn-login-nav {
+  padding: 8px 24px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid #0EC772;
+  color: #0EC772;
+  background: transparent;
+  cursor: pointer;
+  /* margin-top убрал, чтобы ровно стояло в навбаре */
+  margin: 0; 
+}
+
+.btn-login-nav:hover {
+  background: #0EC772;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(14, 199, 114, 0.3);
+  transform: translateY(-1px);
+}
+
+/* --- НОВЫЕ СТИЛИ ДЛЯ ПРОФИЛЯ (Добавьте это) --- */
+.nav-profile-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 4px 6px 4px 16px;
+  border-radius: 100px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.nav-user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
+}
+
+.nav-user-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.nav-user-role {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #666;
+  letter-spacing: 0.05em;
+}
+
+.nav-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0EC772 0%, #0BAA5A 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.nav-avatar:hover {
+  transform: scale(1.05);
+}
+
+/* Контейнер навбара */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  padding: 0 24px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* ЦЕНТРАЛЬНЫЙ БЛОК */
+.navbar-center {
+  display: flex;
+  gap: 32px; /* Расстояние между ссылками */
+  align-items: center;
+  
+  /* Если хотите абсолютно по центру экрана, раскомментируйте это: */
+  /* position: absolute;
+     left: 50%;
+     transform: translateX(-50%); */
+}
+
+/* Ссылки */
+.nav-link {
+  text-decoration: none;
+  color: #666;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Отступ для иконки 🏆 */
+}
+
+.nav-link:hover {
+  color: #0A5F32; /* Зеленый при наведении */
+}
+
+/* Активная ссылка (текущая страница) */
+.nav-link.active {
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.btn-logout {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.btn-logout:hover {
+  color: #dc2626;
+}
+
+/* --- FOOTER --- */
+footer {
+  background: linear-gradient(180deg, #f8fefb 0%, #ffffff 100%);
+  padding: 90px 40px 40px;
+  border-top: 1px solid rgba(14, 199, 114, 0.1);
+  width: 100%;
+  text-align: center;
+}
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 60px;
+  margin-bottom: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(14, 199, 114, 0.1);
+  text-align: left;
+}
+.footer-section h4 { font-size: 15px; font-weight: 700; margin-bottom: 24px; }
+.footer-section a { display: block; margin-bottom: 14px; color: #4a4a4a; text-decoration: none; }
+.footer-section a:hover { color: #0EC772; }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+@media (max-width:450px) {
+  .nav-logo span {
+    display: none;
+  }
+
+  .nav-actions span.text-nav {
+    display: none;
+  }
+
+  .btn-login-nav {
+    display: none;
+  }
+}
